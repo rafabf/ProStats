@@ -60,6 +60,7 @@ authRoutes.post('/signup', (req, res, next) => {
 
                 // Send the user's information to the frontend
                 // We can use also: res.status(200).json(req.user);
+                console.log(aNewUser, "nuevo user creado")
                 res.status(200).json(aNewUser);
             });
         });
