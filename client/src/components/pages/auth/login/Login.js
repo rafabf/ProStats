@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
-import { Link } from 'react-router-dom'
+
 import AuthServices from '../../../../services/auth.services'
 
 class Login extends Component {
@@ -56,9 +56,9 @@ class Login extends Component {
                         <Form.Label>Contraseña</Form.Label>
                         <Form.Control type="password" name="password" value={this.state.password} onChange={this.handleChange} />
                     </Form.Group>
-                    <Button variant="dark" type="submit"> <Link to="/profile">Inicio sesión</Link></Button>
+                    <Button variant="dark" type="submit" onSubmit={this.handleSubmit}>Inicio sesión</Button>
                 </Form>
-            </Container>
+            </Container >
 
         )
     }

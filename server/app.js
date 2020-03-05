@@ -19,4 +19,5 @@ app.use('/auth', require('./routes/auth.routes'))
 app.use('/teams', require('./routes/team.routes'))
 app.use('/files', require('./routes/files.routes'))
 
+app.use((req, res) => { res.sendFile(__dirname + "/public/index.html"); });
 module.exports = app

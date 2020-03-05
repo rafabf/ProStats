@@ -30,6 +30,7 @@ class TeamDetails extends Component {
             .then(theTeam => this.setState({ team: theTeam }))
             .catch(err => console.log(err))
     }
+
     postMyTeam = () => {
         this.services.postMyTeam(this.props.match.params.id)
             .then(theTeam => this.setState({ team: theTeam }))
@@ -39,15 +40,15 @@ class TeamDetails extends Component {
 
         return (
             <Container className="coaster-details">
-                <h1>{this.state.team.name}</h1>
+                {/* <h1>{this.state.team.name}</h1> */}
                 <Row>
                     <Col md={{ span: 4, offset: 1 }}>
 
                         <hr></hr>
-                        <p>{this.state.team.imageUrl}</p>
+                        {/* <p>{this.state.team.imageUrl}</p> */}
                     </Col>
                     <Col md={{ span: 5, offset: 1 }}>
-                        <img src={this.state.team.imageUrl} alt={this.state.team.name}></img>
+                        {/* <img src={this.state.team.imageUrl} alt={this.state.team.name}></img> */}
                     </Col>
                 </Row>
                 <Button as="div" variant="dark" size="sm">
@@ -55,7 +56,7 @@ class TeamDetails extends Component {
 
                 </Button>
                 <Button as="div" variant="dark" size="sm">
-                    <Link to="/MyTeam">unirse al equipo</Link>
+                    <button onClick={this.postMyTeam}>unirse al equipo</button>
 
                 </Button>
             </Container>

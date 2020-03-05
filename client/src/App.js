@@ -8,7 +8,7 @@ import Home from './components/pages/home/Home'
 import TeamList from './components/pages/teamList/TeamList'
 import TeamDetails from './components/pages/teamDetails/TeamDetails'
 import NavBar from './components/ui/NavBar'
-
+import MyTeam from './components/pages/myTeam/MyTeam'
 import Signup from './components/pages/auth/signup/Signup'
 import Profile from './components/pages/profile/Profile'
 import Login from './components/pages/auth/login/Login'
@@ -44,12 +44,13 @@ class App extends Component {
         <NavBar setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
 
         <Switch>
-          <Route exact path="/" render={() => <Home loggedInUser={this.state.loggedInUser} />} />
+          <Route exact path="/" render={() => <Home setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           <Route path="/detalles/:id" render={props => <TeamDetails {...props} />} />
           <Route path="/teams" render={() => <TeamList loggedInUser={this.state.loggedInUser} />} />
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
           <Route path="/login" render={props => <Login setTheUser={this.setTheUser} {...props} />} />
           <Route path="/profile" render={() => this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />} />
+          <Route path="/myteam" render={() => this.state.loggedInUser ? <MyTeam loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />} />
         </Switch>
       </>
 

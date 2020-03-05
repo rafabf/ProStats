@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Team = require('../models/Team.model')
+const User = require('../models/User.model')
 
 router.get('/getAllTeams', (req, res, next) => {
   Team.find()
@@ -20,11 +21,24 @@ router.post('/new', (req, res, ) => {
     .then(theTeam => res.json(theTeam))
     .catch(err => console.log(err))
 })
-router.post('/join', (req, res, next) => {
-  Team.push(req.params.user.id)
+
+
+
+router.post('/join/:id', (req, res) => {
+
+  console.log(req.user._id, "id en back", "y el params del equipo", req.params.id)
+  Team.findByIdAndUpdate(req.params.id, { $push: { members: req.user._id }, new: true })
     .then(theTeam => res.json(theTeam))
     .catch(err => console.log(err))
 
 })
+
+router.get('/getMyTeam/:id', (req, res, next) => {
+  Team.find(req.params.id, { $in: { members: req.user._id }, new: true })
+
+    .then(myTeam => res.json(myTeam))
+    .catch(err => console.log(err))
+})
+
 
 module.exports = router

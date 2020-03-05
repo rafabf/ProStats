@@ -18,7 +18,7 @@ authRoutes.post('/signup', (req, res, next) => {
         return;
     }
 
-    if (password.length < 7) {
+    if (password.length < 2) {
         res.status(400).json({ message: 'Please make your password at least 8 characters long for security purposes.' });
         return;
     }
@@ -48,7 +48,7 @@ authRoutes.post('/signup', (req, res, next) => {
                 res.status(400).json({ message: 'Saving user to database went wrong.' });
                 return;
             }
-
+            console.log(aNewUser)
             // Automatically log in user after sign up
             // .login() here is actually predefined passport method
             req.login(aNewUser, (err) => {

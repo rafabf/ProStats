@@ -74,7 +74,7 @@ class Signup extends Component {
                         <Form.Control type="file" name="imageUrl" onChange={this.handleFileUpload} />
                     </Form.Group>
 
-                    <Button variant="dark" type="submit">Registrarse</Button>
+                    <Button variant="dark" type="submit" onSubmit={this.handleSubmit}>Registrarse</Button>
                 </Form>
             </Container>
 
