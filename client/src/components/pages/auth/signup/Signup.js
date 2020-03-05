@@ -30,6 +30,7 @@ class Signup extends Component {
             .then(theLoggedNewUser => {
                 this.setState({ username: '', password: '' })
                 this.props.setTheUser(theLoggedNewUser)
+
                 this.props.history.push('/profile')
             })
             .catch(err => console.log({ err }))

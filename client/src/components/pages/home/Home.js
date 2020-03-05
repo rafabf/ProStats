@@ -42,7 +42,7 @@ class Home extends Component {
                     <Modal.Body>
                         <h3>INICIA SESIÓN</h3>
                         <hr></hr>
-                        <Login setTheUser={this.props.setTheUser} closeLogin={this.closeLogin} />
+                        <Login history={this.props.history} setTheUser={this.props.setTheUser} closeLogin={this.closeLogin} />
                     </Modal.Body>
                 </Modal>
 
@@ -53,7 +53,7 @@ class Home extends Component {
                     <Modal.Body>
                         <h3>¡registrate!</h3>
                         <hr></hr>
-                        <Signup setTheUser={this.props.setTheUser} closeModal={this.closeSignup} />
+                        <Signup history={this.props.history} setTheUser={this.props.setTheUser} closeModal={this.closeSignup} />
                     </Modal.Body>
                 </Modal>
 

@@ -44,7 +44,7 @@ class App extends Component {
         <NavBar setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
 
         <Switch>
-          <Route exact path="/" render={() => <Home setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
+          <Route exact path="/" render={(match) => <Home {...match} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
           <Route path="/detalles/:id" render={props => <TeamDetails {...props} />} />
           <Route path="/teams" render={() => <TeamList loggedInUser={this.state.loggedInUser} />} />
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
