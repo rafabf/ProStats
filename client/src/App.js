@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
+/* ----- STYLING ----- */
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+/* ----- RRD COMPONENTS ----- */
 import { Switch, Route, Redirect } from 'react-router-dom'
+
+
 import Home from './components/pages/home/Home'
 import TeamList from './components/pages/teamList/TeamList'
 import TeamDetails from './components/pages/teamDetails/TeamDetails'
@@ -11,8 +15,8 @@ import NavBar from './components/ui/NavBar'
 import MyTeam from './components/pages/myTeam/MyTeam'
 import Signup from './components/pages/auth/signup/Signup'
 import Profile from './components/pages/profile/Profile'
+import Match from './components/pages/match/Match'
 import Login from './components/pages/auth/login/Login'
-
 import AuthServices from './services/auth.services'
 
 
@@ -41,6 +45,7 @@ class App extends Component {
 
     return (
       <>
+
         <NavBar setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />
 
         <Switch>
@@ -50,6 +55,7 @@ class App extends Component {
           <Route path="/signup" render={() => <Signup setTheUser={this.setTheUser} />} />
           <Route path="/login" render={props => <Login setTheUser={this.setTheUser} {...props} />} />
           <Route path="/profile" render={() => this.state.loggedInUser ? <Profile loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />} />
+          <Route path="/match" render={() => this.state.loggedInUser ? <Match loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />} />
           <Route path="/myteam" render={() => this.state.loggedInUser ? <MyTeam loggedInUser={this.state.loggedInUser} /> : <Redirect to="/" />} />
         </Switch>
       </>

@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-
 import TeamsServices from '../../../services/team.services'
-
-
 import TeamsCard from './TeamsCard'
-
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
@@ -42,6 +38,7 @@ class TeamsList extends Component {
                 {this.props.loggedInUser && <Button className="mb-20" variant="dark" onClick={this.openModal}>Añadir Teams</Button>}
 
                 {this.state.team.length ? (
+
                     <Row>
                         {this.state.team.map(elm => <TeamsCard key={elm._id} {...elm} />)}
                     </Row>
@@ -50,15 +47,8 @@ class TeamsList extends Component {
                     <p>CARGANDO...</p>
 
                 }
-
-
-
-
-
-
                 <Modal show={this.state.showmodal} onHide={this.closeModal}>
                     <Modal.Body>
-                        <h3></h3>
                         <hr></hr>
                         <TeamsForm closeModal={this.closeModal} refreshList={this.getAllTeams} />
                     </Modal.Body>

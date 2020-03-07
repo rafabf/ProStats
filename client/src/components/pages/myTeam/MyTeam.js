@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Container from 'react-bootstrap/Container'
 import TeamServices from '../../../services/team.services'
-// import Button from 'react-bootstrap/Button'
-// import Modal from 'react-bootstrap/Modal'
+import UserCard from '../user/UserCard'
+import Row from 'react-bootstrap/Row'
 
 
 class MyTeam extends Component {
@@ -19,18 +19,22 @@ class MyTeam extends Component {
 
     getMyTeam = () => {
         this.services.getMyTeam()
-            .then(allmembers => this.setState({ team: allmembers }))
+            .then(theTeam => this.setState({ team: theTeam }))
             .catch(err => console.log(err))
     }
+
     render() {
 
         return (
             <Container>
 
                 <h1>este es tu equipo</h1>
-
-
-
+                <Row>
+                    {this.state.team.name}
+                </Row>
+                <Row>
+                    {this.state.team[0] && this.state.team[0].members.map(elm => <UserCard key={elm._id} {...elm} />)}
+                </Row>
 
 
             </Container>

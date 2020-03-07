@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-
 import TeamServices from '../../../services/team.services'
-
 import TeamForm from '../teamForm/TeamForm'
 import TeamCard from './TeamCard'
-
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
@@ -37,7 +34,7 @@ class TeamList extends Component {
         return (
             <Container>
 
-                <h1>EQUIPOS</h1>
+                <h1>Equipos</h1>
 
                 {this.props.loggedInUser && <Button className="mb-20" variant="dark" onClick={this.openModal}>Añadir equipo</Button>}
 

@@ -40,7 +40,13 @@ authRoutes.post('/signup', (req, res, next) => {
 
         const aNewUser = new User({
             username: username,
-            password: hashPass
+            password: hashPass,
+            imageUrl: String,
+            history: history,
+            position: position,
+            kill: kill,
+            death: death,
+            asist: asist
         });
 
         aNewUser.save(err => {

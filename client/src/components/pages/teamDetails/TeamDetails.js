@@ -40,7 +40,7 @@ class TeamDetails extends Component {
 
         return (
             <Container className="coaster-details">
-                {/* <h1>{this.state.team.name}</h1> */}
+                <h1>{this.state.team.name}</h1>
                 <Row>
                     <Col md={{ span: 4, offset: 1 }}>
 

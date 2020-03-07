@@ -14,7 +14,4 @@ export default class Services {
     postTeam = user => this.service.post(`/new`, user).then(response => response.data)
 
 
-
-
-
 }

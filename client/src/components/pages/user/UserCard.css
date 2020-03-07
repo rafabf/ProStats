@@ -1,8 +1,5 @@
-.card-rusa img {
-    height: 150px;
+.card-user img {
+    height: 50px;
     object-fit: cover;
 }
 
-.card-rusa {
-    margin-bottom: 20px;
-}

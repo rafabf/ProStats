@@ -37,10 +37,10 @@ class Home extends Component {
                 </h1>
 
 
-                <Button className="mb-20" variant="dark" onClick={this.openLogin}>iniciar sesion</Button>
+                <Button className="mb-20" variant="dark" onClick={this.openLogin}>iniciar sesión</Button>
                 <Modal show={this.state.showlogin} onHide={this.closeLogin}>
                     <Modal.Body>
-                        <h3>INICIA SESIÓN</h3>
+                        <h3>iniciar sesión</h3>
                         <hr></hr>
                         <Login history={this.props.history} setTheUser={this.props.setTheUser} closeLogin={this.closeLogin} />
                     </Modal.Body>
@@ -51,7 +51,7 @@ class Home extends Component {
                 <Button className="mb-20" variant="dark" onClick={this.openSignup}>Registrarse</Button>
                 <Modal show={this.state.showsignup} onHide={this.closeSignup}>
                     <Modal.Body>
-                        <h3>¡registrate!</h3>
+                        <h3>¡Registrate!</h3>
                         <hr></hr>
                         <Signup history={this.props.history} setTheUser={this.props.setTheUser} closeModal={this.closeSignup} />
                     </Modal.Body>

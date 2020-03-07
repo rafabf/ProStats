@@ -13,5 +13,6 @@ export default class Services {
     getTeamDetails = id => this.service.get(`/getOneTeam/${id}`).then(response => response.data)
     postTeam = team => this.service.post(`/new`, team).then(response => response.data)
     postMyTeam = id => this.service.post(`/join/${id}`).then(response => response.data)
-    getMyTeam = () => this.service.get('/getMyTeam').then(response => response.data)
+    getMyTeam = () => this.service.get(`/getMyTeam`).then(response => response.data)
+    getMatch = () => this.service.get(`/getMatch`).then(response => response.data)
 }
