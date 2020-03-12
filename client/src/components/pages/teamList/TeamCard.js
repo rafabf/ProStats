@@ -11,12 +11,10 @@ import { Link } from 'react-router-dom'
 const TeamCard = ({ name, imageUrl, _id }) => {
     return (
         <Col md={4}>
-            <Card className="card-rusa">
+            <Card className="card-userteam">
                 <Card.Img variant="top" src={imageUrl} />
                 <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <hr></hr>
-                    <Button as="div" variant="dark" size="sm">
+                    <Button as="div" variant="dark">
                         <Link to={`/detalles/${_id}`}>unirse al equipo</Link>
                     </Button>
                 </Card.Body>

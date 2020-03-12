@@ -38,12 +38,15 @@ router.get('/getMyTeam', (req, res, next) => {
     .catch(err => console.log(err))
 })
 
-router.get('/getMatch', (req, res, next) => {
-  Team.find({ members: { $in: req.user._id } })
+
+
+router.get('/membersteam', (req, res, next) => {
+  Team.find(members)
     .populate('members')
     .then(myTeam => res.json(myTeam))
     .catch(err => console.log(err))
 })
+
 
 
 

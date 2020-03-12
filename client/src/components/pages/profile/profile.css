@@ -1,0 +1,29 @@
+h1{
+    padding-left: 200px;
+}
+.img-style{
+    height: 580px;
+    width: 350px;
+    margin-left: 75px;
+    margin-top: 59px;
+    
+}
+p{
+    margin-top: 70px;
+    margin-left: 40px;
+    margin-right: 200;
+    font-size: 20px;
+    color: cornsilk;
+}
+.card-style{
+
+    box-shadow: rgb(34, 34, 34);
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+
+.center{
+        align-items: center;
+    }
+

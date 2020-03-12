@@ -6,10 +6,12 @@ const userSchema = new Schema({
     password: String,
     history: String,
     position: String,
-    kill: Number,
-    death: Number,
-    asist: Number,
     imageUrl: String,
+    data: {
+        kills: Number,
+        deaths: Number,
+        assists: Number,
+    }
 },
     {
         timestamps: true

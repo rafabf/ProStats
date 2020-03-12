@@ -1,8 +1,9 @@
-.card-rusa img {
-    height: 150px;
-    object-fit: cover;
+.card-userteam{
+    height: 350px;
+    display: flex;
+    margin-bottom: 20px;
+    background-color: black;
+    align-items: center;
 }
 
-.card-rusa {
-    margin-bottom: 20px;
-}
+

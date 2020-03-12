@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 // import TeamServices from '../../../services/team.services'
 import AuthServices from '../../services/auth.services'
 import { Link } from 'react-router-dom'
+import './nav.css'
 
 class Navigation extends Component {
 
@@ -38,23 +39,23 @@ class Navigation extends Component {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
-                                <Nav.Link as="div"> <Link to="/">Inicio</Link></Nav.Link>
-                                <Nav.Link as="div"> <Link to="/teams">Buscar equipos</Link></Nav.Link>
-                                <Nav.Link onClick={this.getMyTeam}> <Link to="/myTeam">Tu equipo</Link></Nav.Link>
-                                <Nav.Link as="div"> <Link to="/match">partido</Link></Nav.Link>
-                                <Nav.Link onClick={this.logout}>Cerrar sesión</Nav.Link>
-                                <Nav.Link as="div"><Link to="/profile">{greeting}</Link></Nav.Link>
+                                <Nav.Link className="back-style" as="div"> <Link to="/">Inicio</Link></Nav.Link>
+                                <Nav.Link className="back-style" as="div"> <Link to="/teams">Buscar equipos</Link></Nav.Link>
+                                <Nav.Link className="back-style" onClick={this.getMyTeam}> <Link to="/myTeam">Tu equipo</Link></Nav.Link>
+                                <Nav.Link className="back-style" as="div"> <Link to="/match">partido</Link></Nav.Link>
+                                <Nav.Link className="back-style" onClick={this.logout}>Cerrar sesión</Nav.Link>
+                                <Nav.Link className="back-style" as="div"><Link to="/profile">{greeting}</Link></Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Navbar>
                 )
                 :
                 (
-                    <Navbar bg="dark" expand="lg" variant="dark">
+                    <Navbar className="back-style" expand="lg">
                         <Navbar.Brand as="div">ProStats</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="ml-auto">
+                            <Nav className="ml-auto back-style">
                                 <Nav.Link as="div"> <Link to="/">Inicio</Link></Nav.Link>
                                 <Nav.Link as="small">{greeting}</Nav.Link>
                             </Nav>

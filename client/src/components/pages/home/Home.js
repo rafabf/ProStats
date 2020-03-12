@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import Signup from '../auth/signup/Signup'
 import Login from '../auth/login/Login'
-
+import './home.css'
 
 
 class Home extends Component {
@@ -37,7 +37,7 @@ class Home extends Component {
                 </h1>
 
 
-                <Button className="mb-20" variant="dark" onClick={this.openLogin}>iniciar sesión</Button>
+                <Button className="mb-60 color-style" variant="info" onClick={this.openLogin}>Iniciar sesión</Button>
                 <Modal show={this.state.showlogin} onHide={this.closeLogin}>
                     <Modal.Body>
                         <h3>iniciar sesión</h3>
@@ -48,7 +48,7 @@ class Home extends Component {
 
 
 
-                <Button className="mb-20" variant="dark" onClick={this.openSignup}>Registrarse</Button>
+                <Button className="mb-60 color-style" variant="info" onClick={this.openSignup}>Registrarse</Button>
                 <Modal show={this.state.showsignup} onHide={this.closeSignup}>
                     <Modal.Body>
                         <h3>¡Registrate!</h3>

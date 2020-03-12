@@ -7,9 +7,7 @@ h1, h2, h3, h4 {
   font-weight: 200;
 }
 
-h1 {
-  margin-bottom: 40px;
-}
+
 
 .mb-20 {
   margin-bottom: 20px;
@@ -23,8 +21,11 @@ a, a:hover {
   margin-top: 40px
 }
 /* body{
-  background-image:url(../public/images/1-4.jpg);
   background-position: center;
- background-attachment: contain;
- background-size: cover;
+  background-attachment: contain;
+  background-size: cover;
+  background-image:url(../public/images/1-4.jpg);
 } */
+body{
+  background-color: rgb(228, 226, 226);
+}
