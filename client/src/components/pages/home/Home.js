@@ -28,27 +28,24 @@ class Home extends Component {
     openSignup = () => this.setState({ showsignup: true })
 
     render() {
-
         return (
-            <Container>
 
-                <h1>
-                    ¿Quieres unirte a nuestra liga y poder comparar tus Stats?
+            <Container>
+                <h1 className="h1-style">
+                    ¡Únete a ProStats y comparte nuestra pasión!
                 </h1>
 
 
                 <Button className="mb-60 color-style" variant="info" onClick={this.openLogin}>Iniciar sesión</Button>
                 <Modal show={this.state.showlogin} onHide={this.closeLogin}>
                     <Modal.Body>
-                        <h3>iniciar sesión</h3>
+                        <h2>iniciar sesión</h2>
                         <hr></hr>
                         <Login history={this.props.history} setTheUser={this.props.setTheUser} closeLogin={this.closeLogin} />
                     </Modal.Body>
                 </Modal>
 
-
-
-                <Button className="mb-60 color-style" variant="info" onClick={this.openSignup}>Registrarse</Button>
+                <Button className="mb-60 color-style2" variant="info" onClick={this.openSignup}>Registrarse</Button>
                 <Modal show={this.state.showsignup} onHide={this.closeSignup}>
                     <Modal.Body>
                         <h3>¡Registrate!</h3>

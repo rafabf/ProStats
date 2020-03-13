@@ -45,7 +45,7 @@ class Login extends Component {
 
             <Container>
 
-                <h1>Inicio de sesión</h1>
+
 
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>

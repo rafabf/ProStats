@@ -7,9 +7,7 @@ import './team-details.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
 
-import { Link } from 'react-router-dom'
 
 
 
@@ -40,26 +38,22 @@ class TeamDetails extends Component {
 
         return (
             <Container className="coaster-details">
-                <h1>{this.state.team.name}</h1>
-                <Row>
-                    <Col md={{ span: 4, offset: 1 }}>
 
-                        <hr></hr>
-                        {/* <p>{this.state.team.imageUrl}</p> */}
-                    </Col>
+                <Row>
                     <Col md={{ span: 5, offset: 1 }}>
-                        {/* <img src={this.state.team.imageUrl} alt={this.state.team.name}></img> */}
+                        <img src={this.state.team.imageUrl} alt={this.state.team.name}></img>
+                    </Col>
+                    <Col md={6}>
+                        <p>{this.state.team && this.state.team.history}</p>
                     </Col>
                 </Row>
-                <Button as="div" variant="dark" size="sm">
-                    <Link to="/">Volver</Link>
+                <hr></hr>
 
-                </Button>
-                <Button as="div" variant="dark" size="sm">
-                    <button onClick={this.postMyTeam}>unirse al equipo</button>
 
-                </Button>
-            </Container>
+                <button className="button-style" onClick={this.postMyTeam}>unirse al equipo</button>
+                <hr>
+                </hr>
+            </Container >
         )
     }
 }

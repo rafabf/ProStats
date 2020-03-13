@@ -4,11 +4,12 @@ import TeamServices from '../../../services/team.services'
 import './match.css'
 import UserCard from '../user/UserCard'
 
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
+
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Legend, PolarRadiusAxis } from "recharts";
 import Select from '../../ui/Select'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
+
 
 
 class Match extends Component {
@@ -16,13 +17,25 @@ class Match extends Component {
 
     constructor(props) {
         super(props)
-        this.state = { team: {}, select_1: null, select_2: null, selectedTeam: null }
+        this.state = {
+            team: {},
+            select_1: null,
+            select_2: null,
+            selectedTeam: null,
+            random: ""
+        }
         this.services = new TeamServices()
     }
 
     componentDidMount = () => {
         this.getAllTeam()
 
+    }
+    handleClick() {
+        const min = 1;
+        const max = 100;
+        const Rand = min + Math.random() * (max - min);
+        this.setState({ random: this.state.random + Rand });
     }
 
     getAllTeam = () => {
@@ -51,6 +64,7 @@ class Match extends Component {
                 })
 
                 const average = this.getAverage(result)
+                console.log(average)
                 const dataChart = this.chart(average)
 
                 // return result
@@ -71,9 +85,9 @@ class Match extends Component {
             //Iteramos cada equipo con el map
             const reducedTeam = eachTeam.members.reduce((acumulado, eachMember) => {
                 //Reducimos a un unico elemento
-                acumulado.data.deaths += eachMember.data.kills
-                acumulado.data.deaths += eachMember.data.deaths
-                acumulado.data.assists += eachMember.data.assists
+                acumulado.data.kills += parseFloat(eachMember.data.kills)
+                acumulado.data.deaths += parseFloat(eachMember.data.deaths)
+                acumulado.data.assists += parseFloat(eachMember.data.assists)
 
                 return acumulado
             },
@@ -81,7 +95,7 @@ class Match extends Component {
 
             //a cada equipo le ponemos una propiedad nueva average con la media.
             reducedTeam.data.kills = reducedTeam.data.kills / eachTeam.members.length
-            reducedTeam.data.deaths = reducedTeam.deaths / eachTeam.members.length
+            reducedTeam.data.deaths = reducedTeam.data.deaths / eachTeam.members.length
             reducedTeam.data.assists = reducedTeam.data.assists / eachTeam.members.length
             eachTeam.average = reducedTeam
             //devolvemos el equipo modificado
@@ -93,9 +107,9 @@ class Match extends Component {
 
     chart(average) {
 
-        const kills = { avg: "kills", A: average[0].kills, B: average[1].kills, fullMark: 150 }
-        const assists = { avg: "assists", A: average[0].assists, B: average[1].assists, fullMark: 150 }
-        const deaths = { avg: "deaths", A: average[0].deaths, B: average[1].deaths, fullMark: 150 }
+        const kills = { avg: "kills", A: average[0].average.data.kills, B: average[1].average.data.kills, fullMark: 20 }
+        const assists = { avg: "assists", A: average[0].average.data.assists, B: average[1].average.data.assists, fullMark: 20 }
+        const deaths = { avg: "deaths", A: average[0].average.data.deaths, B: average[1].average.data.deaths, fullMark: 20 }
 
 
         const allData = [kills, deaths, assists]
@@ -106,6 +120,14 @@ class Match extends Component {
     }
 
 
+
+
+
+
+    closelink = () => this.setState({ showlink: false })
+    openlink = () => this.setState({ showlink: true })
+
+
     render() {
         console.log()
         return (
@@ -114,50 +136,54 @@ class Match extends Component {
                     <Col className="stylecol">
                         <h3 className="h3-style">Selecciona tu equipo</h3>
                         <hr></hr>
-                        <Select name="select_1" teams={this.state.team} setMembers={this.membersteam} />
+                        <Select className="select-style" name="select_1" teams={this.state.team} setMembers={this.membersteam} />
                     </Col>
+
                     <Col>
                         <h3 className="h3-style">Selecciona el equipo del contrincante</h3>
                         <hr></hr>
-                        <Select name="select_2" teams={this.state.team} setMembers={this.membersteam} />
+                        <Select className="select-style" name="select_2" teams={this.state.team} setMembers={this.membersteam} />
                     </Col>
                 </Row>
-
                 <Row className="stylerow">
+                    {this.state.selectedTeam &&
+                        this.state.selectedTeam.map(team => {
+                            return (
+                                <Col md={6}>
+                                    <Row>
+                                        {team.members.map(elm => (
+                                            <Col md={4}>
+                                                <UserCard key={elm._id} {...elm} />
+                                            </Col>
+                                        ))}
+                                    </Row>
+                                </Col>
+                            );
+                        })}
+                </Row>
 
-                    {this.state.selectedTeam && this.state.selectedTeam.map(team => {
-
-                        return <Col>
-
-                            {team.members.map(elm => <UserCard key={elm._id} {...elm} />)}
+                {this.state.select_1 != null && this.state.select_2 != null &&
+                    <Row className="center body" >
+                        <Col md={6}>
+                            <RadarChart cx={250} cy={250} outerRadius={150} width={500} height={500} data={this.state.dataChar}>
+                                <PolarGrid />
+                                <PolarAngleAxis dataKey="avg" />
+                                <PolarRadiusAxis angle={90} domain={[0, 15]} />
+                                <Radar name={this.state.select_1} dataKey="A" stroke="#0473EA" fill="#0473EA" fillOpacity={1.0} />
+                                <Radar name={this.state.select_2} dataKey="B" stroke="#FA0000" fill="#FA0000" fillOpacity={0.4} />
+                                <Legend />
+                            </RadarChart>
                         </Col>
-                    })
-                    }
-                </Row>
-                {/* pintar aqui chart */}
-                {/* <RadarChart
-                    cx={600}
-                    cy={500}
-                    outerRadius={300}
-                    width={1000}
-                    height={800}
-                    data={teamDataReducido}
-                >
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="name" />
-                    <Radar
-                        name="Mike"
-                        dataKey="value"
-                        stroke="#7784d8"
-                        fill="#8884d8"
-                        fillOpacity={0.6}
-                    />
-                </RadarChart> */}
-                <Row>
-                    <Col>
-                        <Button className="button-style" > Generar código de partida</Button>
-                    </Col>
-                </Row>
+
+
+                        <Col md={6}>
+                            <div className="div-style">
+                                <button className="button-style" onClick={this.handleClick.bind(this)}>--Generar código de partida--</button>
+                                <div className="div-style number-style">{this.state.random}</div>
+                            </div>
+                        </Col>
+                    </Row>
+                }
             </Container >
         )
     }
@@ -171,15 +197,6 @@ class Match extends Component {
 
 export default Match
 
-
-// const data = [
-//     { subject: 'Math', A: 120, B: 110, fullMark: 150 },
-//     { subject: 'Chinese', A: 98, B: 130, fullMark: 150 },
-//     { subject: 'English', A: 86, B: 130, fullMark: 150 },
-//     { subject: 'Geography', A: 99, B: 100, fullMark: 150 },
-//     { subject: 'Physics', A: 85, B: 90, fullMark: 150 },
-//     { subject: 'History', A: 65, B: 85, fullMark: 150 },
-// ];
 
 // const TwoLevelPieChart = React.createClass({
 //     render() {

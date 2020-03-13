@@ -1,3 +1,10 @@
 .back-style{
-    color:rgba(12, 194, 240, 0.842)
+    color:rgba(0, 0, 0, 0.842);
+    font-weight: 900;
+    background-color:rgba(12, 194, 240, 0.842);
+ 
+}
+.img-style{
+
+    width: 50px;
 }

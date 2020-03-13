@@ -4,7 +4,7 @@ import UserCard from './UserCard'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Modal from 'react-bootstrap/Modal'
-
+import Spinner from 'react-bootstrap/Spinner'
 class Userlist extends Component {
 
     constructor(props) {
@@ -32,7 +32,7 @@ class Userlist extends Component {
                     </Row>
                 )
                     :
-                    <p>CARGANDO...</p>
+                    <Spinner animation="border" variant="primary" />
                 }
                 <Modal show={this.state.showmodal} onHide={this.closeModal}>
                     <Modal.Body>

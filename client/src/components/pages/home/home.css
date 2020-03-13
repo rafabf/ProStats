@@ -1,7 +1,32 @@
 .color-style{
     background-color: rgb(17, 149, 211);
+    text-align: center;
+    margin-top: 200px;
+    margin-left: 450px;   
+    height:40px;
+    width: 200px;
+}
+.color-style2{
+    background-color: rgb(17, 149, 211);
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 450px;   
+    height:40px;
+    width: 200px;
+    
 }
 Button:hover{
-    box-sizing: 25px;
-    background-color: rgb(170, 35, 35);
+    
+    background-color: rgb(17, 149, 211);
+   -webkit-box-shadow: 10px 10px 5px 0px rgba(17,150,211,1);
+-moz-box-shadow: 10px 10px 5px 0px rgba(17,150,211,1);
+box-shadow: 10px 10px 5px 0px rgba(17,150,211,1);
+}
+.h1-style{
+
+  font-weight: 900;
+}
+img{
+      flex: 1;
+    resize: cover;
 }

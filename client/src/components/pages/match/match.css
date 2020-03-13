@@ -1,26 +1,71 @@
 .h3-style{
-    margin-bottom: 30px;
-    margin-left: inherit;
-    margin-left: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-left: auto;
   margin-right: auto;
+  color:whitesmoke
 }
 .button-style{
-    background-color: rgb(36, 35, 35);
-    display: flex;
-    align-items: center;
-    margin-left: auto;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-bottom: 30px;
+  margin-top: 50px;
   margin-right: auto;
-    
+  color: rgba(12, 194, 240, 0.842);
+  border: 1px solid rgba(0, 0, 0, 0.842) ;
 }
 .size{
     box-sizing: 30px;
 }
 .stylerow{
     display:flex;
-   justify-content: start;
+  
 }   
 .stylecol{
-     margin-left: auto;
+  margin-left: auto;
   margin-right: auto;
+  align-items: center;
 
+}
+.div-style{
+  color: rgba(12, 194, 240, 0.842);
+}
+.number-style{
+  text-align: center;
+  font-weight: 3px;
+  background-color:rgb(0, 0, 0) ;
+  border: 1px solid rgba(0, 0, 0, 0.842) ;
+}
+.margin{
+  margin-right: 50px;
+}
+.select-style{
+color: whitesmoke;
+}
+.MuiFormLabel-root {
+  color: rgba(12, 194, 240, 0.842) !important;
+}
+.MuiInputBase-root {
+  color: rgb(255, 255, 255) !important;
+}
+.MuiSelect-select.MuiSelect-select{
+  color: aliceblue !important;
+}
+/* .MuiInputLabel-formControl{
+position: fixed !important;
+} */
+
+.center{
+ 
+align-items: center;
+border: black;
+margin-top: 25px;
+}
+.body{
+  color: aliceblue;
+}
+.recharts-text .recharts-polar-angle-axis-tick-value{
+color: white;
 }

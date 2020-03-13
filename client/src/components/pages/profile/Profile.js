@@ -1,8 +1,8 @@
 import React from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from "recharts";
 import './profile.css'
+
 import Col from 'react-bootstrap/Col'
-import row from 'react-bootstrap/Row'
 import Row from "react-bootstrap/Row";
 
 
@@ -27,7 +27,7 @@ const Profile = ({ loggedInUser }) => {
                     <h1 > {loggedInUser.username} </h1>
                     <RadarChart
                         cx={250}
-                        cy={350}
+                        cy={250}
                         outerRadius={150}
                         width={500}
                         height={500}

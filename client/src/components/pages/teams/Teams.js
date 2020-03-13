@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import Spinner from 'react-bootstrap/Spinner'
 
 class TeamsList extends Component {
 
@@ -44,7 +45,7 @@ class TeamsList extends Component {
                     </Row>
                 )
                     :
-                    <p>CARGANDO...</p>
+                    <Spinner animation="border" variant="primary" />
 
                 }
                 <Modal show={this.state.showmodal} onHide={this.closeModal}>

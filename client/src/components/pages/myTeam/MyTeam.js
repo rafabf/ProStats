@@ -4,6 +4,7 @@ import TeamServices from '../../../services/team.services'
 import UserCard from '../user/UserCard'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Spinner from 'react-bootstrap/Spinner'
 
 
 class MyTeam extends Component {
@@ -25,27 +26,29 @@ class MyTeam extends Component {
     }
 
     render() {
-        console.log(this.state.team[0] && this.state.team[0].name)
-        return (
+
+        return this.state.team[0] ? (
             <Container>
                 <Row>
                     <Col md={6}>
                         <h1>{this.state.team[0] && this.state.team[0].name}</h1>
+                        <img src={this.state.team[0] && this.state.team[0].imageUrl} />
 
                     </Col>
                     <Col md={6}>
                         <p>{this.state.team[0] && this.state.team[0].history}</p>
                     </Col>
+
                 </Row>
-                <Row>
-                </Row>
+                <hr></hr>
                 <Row>
                     {this.state.team[0] && this.state.team[0].members.map(elm => <UserCard key={elm._id} {...elm} />)}
                 </Row>
 
 
             </Container>
-        )
+        ) :
+            <Spinner animation="border" variant="primary" />
     }
 }
 
